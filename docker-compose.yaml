@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  phpfpm:
+    image: php:8.3-fpm
+    container_name: phpfpm
+    volumes:
+      - ./src:/var/www/html
+      - ./opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
+    expose:
+      - "9000"
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - phpfpm
