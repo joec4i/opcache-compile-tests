@@ -10,16 +10,18 @@ Below is my test output:
 ```
 $ curl -s http://localhost:8080/compile-test.php
 bool(true)
+bool(true)
 <br />
 <b>Fatal error</b>:  Cannot redeclare foo() (previously declared in /var/www/html/releases/v1/functions.php:4) in <b>/var/www/html/releases/v2/functions.php</b> on line <b>4</b><br />
 <br />
-<b>Warning</b>:  Zend OPcache could not compile file /var/www/html/releases/v2/functions.php in <b>/var/www/html/compile-test.php</b> on line <b>3</b><br />
+<b>Warning</b>:  Zend OPcache could not compile file /var/www/html/releases/v2/functions.php in <b>/var/www/html/compile-test.php</b> on line <b>8</b><br />
 bool(false)
 ```
 
 The expected output should be
 ```
 bool(true)
+bool(false)
 bool(true)
 ```
 
